@@ -1,1 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Movie Explorer</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Header-->
+        <header class="header">
+            <h1 class="title">🎬 Movie Explorer</h1>
+            <button class="favorites-toggle" id="favoritesToggle">
+                <span class="heart">❤️</span>
+                <span>My Favorites</span>
+                <span class="favorites-count" id="favoritesCount">0</span>
+            </button>
+        </header>
 
+        <!-- Search Section-->
+        <div class="search-section">
+            <textarea 
+            id="searchInput" 
+            class="search-input" 
+            placeholder="Search for movie (e.g. The Matrix, Inception, Brave Heart, ...)" 
+            rows="1"></textarea>
+            <button class="search-button" id="searchButton">Search</button>
+        </div>
+        
+        <!-- Favorites Section (Hidden by default) -->
+         <div class="favorites-section" id="favoriteSection" style="display: none;"></div>
+         
+         <div class="favorites-header">
+            <h2>My Favorite Movies</h2>
+            <button class="close-favorites" id="closeFavorites">X</button>
+         </div>
+         <div class="movies-grid" id="favoritesGrid">
+            <p class="empty-message">No favorites yet. Start adding movies!</p>
+         </div>
+              
+        <!-- Result Section -->
+         <div class="results-section" id="resultSection">
+            <div class="loading" id="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Searching for movies...</p>
+            </div>
+            <div class="error-message" id="errorMessage" style="display: none;"></div>
+
+            <div class="movies-grid" id="moviesGrid"></div>
+         </div>
+
+         <!-- Movie Details Modal --> 
+          <div class="modal" id="moviesModal" style="display: none;">
+            <div class="modal-overlay" id="modalOverray"></div>
+            <div class="modal-content"></div>
+            <button class="modal-close" id="modalClose">X</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Modal content will be inserted here -->    
+            </div>
+          </div>
+          </div>
+    </div>
+    <!-- Footer with project information -->
+    <footer class="footer">
+       <div class="footer-content">
+        <p class="footer-text">Movie Explorer Project | Powered by OMDb API | Built in HTML CSS and Javascript</p>
+        <p class="footer-copyright">Copyright &#169;2025 Mihailo Sindelic</p>
+       </div>
+    </footer>
+</body>
+</html>
