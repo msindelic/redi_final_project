@@ -30,8 +30,6 @@ project/
 │ ├── responsive.css # Media queries for responsive design
 │ ├── script.js # Main JavaScript logic
 │ ├── api.js # OMDb API integration functions
-│ ├── presentation.html # Technical presentation slides
-│ └── school-presentation.html # School presentation slides
 ├── README.md # Project documentation
 \`\`\`
 
@@ -40,8 +38,6 @@ project/
 ### HTML Files
 
 - **index.html** - Main application page with search bar, movie grid, modal, and favorites section
-- **presentation.html** - Technical project presentation
-- **school-presentation.html** - Comprehensive school presentation covering project details
 
 ### CSS Files
 
@@ -86,13 +82,6 @@ You have several options to run the application:
 - Simply open `public/index.html` in your web browser
 
 **Option 2: Local Web Server (Recommended)**
-
-- Using Python:
-  \`\`\`bash
-  cd public
-  python -m http.server 8000
-  \`\`\`
-  Then visit `http://localhost:8000`
 
 - Using Node.js (with http-server):
   \`\`\`bash
@@ -197,14 +186,6 @@ This project uses the [OMDb API](https://www.omdbapi.com/) (Open Movie Database)
 
 - Free tier: 1,000 requests per day
 - Consider implementing request caching for production use
-
-## Browser Compatibility
-
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
-- Opera 76+
 
 **Required Browser Features:**
 
