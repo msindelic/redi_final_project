@@ -25,27 +25,24 @@ A modern, responsive web application for searching and exploring movies using th
 \`\`\`
 project/
 ├── public/
-│ ├── index.html # Main HTML file
-│ ├── styles.css # Core CSS styles
-│ ├── responsive.css # Media queries for responsive design
-│ ├── script.js # Main JavaScript logic
-│ ├── api.js # OMDb API integration functions
-├── README.md # Project documentation
+│   ├── index.html           # Main HTML file
+│   ├── styles.css           # Core CSS styles
+│   ├── responsive.css       # Media queries for responsive design
+│   ├── script.js            # Main JavaScript logic
+│   ├── api.js              # OMDb API integration functions
+├── README.md               # Project documentation
 \`\`\`
 
 ## File Descriptions
 
 ### HTML Files
-
 - **index.html** - Main application page with search bar, movie grid, modal, and favorites section
 
 ### CSS Files
-
 - **styles.css** - Core styling including layout, colors, typography, and animations
 - **responsive.css** - Media queries for mobile (480px), tablet (768px), and desktop (1024px) breakpoints
 
 ### JavaScript Files
-
 - **api.js** - API module containing three functions:
   - `searchMovies(query)` - Search movies by title
   - `getMovieDetails(imdbID)` - Get full movie details
@@ -78,7 +75,6 @@ const API_KEY = "your_actual_api_key_here"
 You have several options to run the application:
 
 **Option 1: Direct File Opening**
-
 - Simply open `public/index.html` in your web browser
 
 **Option 2: Local Web Server (Recommended)**
@@ -96,13 +92,11 @@ You have several options to run the application:
 ## How to Use
 
 ### Search for Movies
-
 1. Enter a movie title in the green search bar (e.g., "The Matrix", "Inception")
 2. Click the "Search" button or press Enter
 3. Browse the movie results displayed as cards
 
 ### View Movie Details
-
 1. Click on any movie card
 2. A modal window will appear with full details:
    - Movie poster
@@ -112,14 +106,12 @@ You have several options to run the application:
    - Runtime and release year
 
 ### Manage Favorites
-
 1. **Add to Favorites**: Click the heart icon on any movie card or in the modal
 2. **View Favorites**: Click the "My Favorites" button in the header
-3. **Remove from Favorites**: Click the red heart icon on favorited movies
+3. **Remove from Favorites**: Click the red heart icon on favorites movies
 4. **Favorites Count**: See the number badge next to "My Favorites" button
 
 ### Keyboard Shortcuts
-
 - **Enter** - Submit search query
 - **Escape** - Close modal window
 
@@ -135,21 +127,18 @@ The application is fully responsive with three main breakpoints:
 ## Features in Detail
 
 ### Search Functionality
-
 - Real-time search with loading indicator
 - Error handling for failed requests
 - "No results" messaging
 - Enter key support for quick searching
 
 ### Movie Cards
-
 - High-quality poster images with fallback
 - Movie title, year, and type
 - Favorite toggle button
 - Hover effects and animations
 
 ### Modal Window
-
 - Detailed movie information
 - Scrollable content for long descriptions
 - Close button and overlay click to dismiss
@@ -157,7 +146,6 @@ The application is fully responsive with three main breakpoints:
 - Responsive design
 
 ### Favorites System
-
 - localStorage persistence
 - Survives page refreshes
 - Real-time count updates
@@ -165,7 +153,6 @@ The application is fully responsive with three main breakpoints:
 - Add/remove functionality
 
 ### UI/UX
-
 - Loading spinners during API calls
 - Error messages for user feedback
 - Smooth transitions and animations
@@ -177,18 +164,15 @@ The application is fully responsive with three main breakpoints:
 This project uses the [OMDb API](https://www.omdbapi.com/) (Open Movie Database).
 
 **API Endpoints Used:**
-
 - Search: `https://www.omdbapi.com/?apikey={key}&s={query}`
 - Details: `https://www.omdbapi.com/?apikey={key}&i={imdbID}&plot=full`
 - Basic Info: `https://www.omdbapi.com/?apikey={key}&i={imdbID}`
 
 **Rate Limits:**
-
 - Free tier: 1,000 requests per day
 - Consider implementing request caching for production use
 
 **Required Browser Features:**
-
 - ES6 JavaScript support
 - Fetch API
 - localStorage API
@@ -220,20 +204,17 @@ This project uses the [OMDb API](https://www.omdbapi.com/) (Open Movie Database)
 ## Troubleshooting
 
 **Movies not loading?**
-
 - Check that your API key is correctly configured in `api.js`
 - Verify your API key is activated (check email)
 - Ensure you haven't exceeded daily API limit
 - Check browser console for error messages
 
 **Favorites not saving?**
-
 - Ensure localStorage is enabled in your browser
 - Check if you're in private/incognito mode (localStorage may be restricted)
 - Clear browser cache and try again
 
 **Styling issues?**
-
 - Make sure both `styles.css` and `responsive.css` are loaded
 - Check browser console for CSS file errors
 - Try hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
@@ -243,17 +224,14 @@ This project uses the [OMDb API](https://www.omdbapi.com/) (Open Movie Database)
 ### Making Changes
 
 **Modifying Styles:**
-
 - Core styles: Edit `public/styles.css`
 - Responsive styles: Edit `public/responsive.css`
 
 **Adding Features:**
-
 - UI logic: Edit `public/script.js`
 - API functions: Edit `public/api.js`
 
 **Testing:**
-
 - Test on multiple screen sizes using browser dev tools
 - Test with slow network to see loading states
 - Test with no results and error scenarios
