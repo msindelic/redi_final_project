@@ -22,41 +22,40 @@
         <!-- Search Section-->
         <div class="search-section">
             <textarea 
-            id="searchInput" 
             class="search-input" 
             placeholder="Search for movie (e.g. The Matrix, Inception, Brave Heart, ...)" 
             rows="1"></textarea>
-            <button class="search-button" id="searchButton">Search</button>
+            <button class="search-button">Search</button>
         </div>
         
         <!-- Favorites Section (Hidden by default) -->
-         <div class="favorites-section" id="favoriteSection" style="display: none;"></div>
+         <div class="favorites-section" style="display: none;"></div>
          
          <div class="favorites-header">
             <h2>My Favorite Movies</h2>
-            <button class="close-favorites" id="closeFavorites">X</button>
+            <button class="close-favorites">X</button>
          </div>
-         <div class="movies-grid" id="favoritesGrid">
+         <div class="movies-grid">
             <p class="empty-message">No favorites yet. Start adding movies!</p>
          </div>
               
         <!-- Result Section -->
-         <div class="results-section" id="resultSection">
-            <div class="loading" id="loading" style="display: none;">
+         <div class="results-section">
+            <div class="loading" style="display: none;">
                 <div class="spinner"></div>
                 <p>Searching for movies...</p>
             </div>
-            <div class="error-message" id="errorMessage" style="display: none;"></div>
+            <div class="error-message" style="display: none;"></div>
 
-            <div class="movies-grid" id="moviesGrid"></div>
+            <div class="movies-grid"></div>
          </div>
 
          <!-- Movie Details Modal --> 
-          <div class="modal" id="moviesModal" style="display: none;">
-            <div class="modal-overlay" id="modalOverray"></div>
+          <div class="modal" style="display: none;">
+            <div class="modal-overlay"></div>
             <div class="modal-content"></div>
-            <button class="modal-close" id="modalClose">X</button>
-            <div class="modal-body" id="modalBody">
+            <button class="modal-close">X</button>
+            <div class="modal-body">
                 <!-- Modal content will be inserted here -->    
             </div>
           </div>
