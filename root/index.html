@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Search App</title>
+    <!-- Main styles for the movie search page -->
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <!-- HEADER SECTION -->
+    <header>
+      <h1>🎬 Movie Search App</h1>
+      <nav>
+        <!-- Link to favorites page -->
+        <a href="./Favorites/favorites.html">Favorites ❤️</a>
+      </nav>
+    </header>
+    <!-- SEARCH INPUT SECTION -->
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="movieInput"
+        placeholder="Search for a movie ..."
+        autocomplete="off"
+      />
+      <button id="searchBtn">Search</button>
+    </div>
+    <!-- MOVIE RESULTS CONTAINER -->
+    <!-- Hidden by default, shown after search -->
+
+    <div id="movieContainer" class="movie-container"></div>
+
+    <div class="pagination">
+      <button id="prevPage" disabled>⬅ Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button id="nextPage" disabled>Next ➡</button>
+    </div>
+
+    <!-- SCROLL TO TOP BUTTON -->
+    <!-- Appears when user scrolls down -->
+
+    <button id="scrollTopBtn" title="Go to top">⬆️</button>
+
+    <!-- MODAL FOR MOVIE DETAILS -->
+    <!-- Displays full movie information when card is clicked -->
+
+    <div id="movieModal" class="modal">
+      <div class="modal-content">
+        <!-- Close button -->
+        <span id="closeModal">&times;</span>
+        <div class="modal-inner">
+          <!-- Left side: Movie poster -->
+          <div class="modal-left">
+            <img id="modalPoster" src="" alt="" />
+          </div>
+          <!-- Right side: Movie details -->
+          <div class="modal-right" id="modalDetails"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Main JavaScript file -->
+    <script src="./js/script.js"></script>
+  </body>
+</html>

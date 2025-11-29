@@ -1,0 +1,145 @@
+/* FAVORITES PAGE - STYLES */
+
+/* Import Google Fonts - Poppins for consistency with main page */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* GLOBAL STYLES */
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(
+    135deg,
+    #101820,
+    #060b13
+  ); /* Matching dark gradient */
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER SECTION */
+
+header {
+  text-align: center;
+  background-color: #222; /* Dark background */
+  color: #10b981; /* Emerald green text */
+  padding: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+header a {
+  color: #10b981;
+  text-decoration: none;
+  font-weight: 500;
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+
+header a:hover {
+  color: #66aaff; /* Blue on hover */
+}
+
+/* FAVORITES GRID LAYOUT */
+/* Responsive grid for favorite movie cards */
+
+.favoritesContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(220px, 1fr)
+  ); /* Auto-fill columns */
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+/* MOVIE CARD STYLES */
+/* Cards with emerald green background */
+
+.movie-card {
+  background: #10b981; /* Emerald green background */
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.movie-card:hover {
+  transform: scale(1.05); /* Slight zoom on hover */
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+.movie-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.movie-card h2 {
+  font-size: 1rem;
+  margin: 0.5rem;
+  color: #333; /* Dark text on green background */
+}
+
+.movie-card p {
+  color: #666; /* Gray year text */
+  margin: 0 0.5rem 1rem;
+}
+
+/* REMOVE BUTTON */
+/* Red circular button in top-right corner */
+
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff3b3b; /* Red background */
+  color: #fff;
+  border: none;
+  border-radius: 50%; /* Circular button */
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.remove-btn:hover {
+  background: #cc0000; /* Darker red on hover */
+}
+
+/* EMPTY STATE MESSAGE */
+/* Shown when no favorites exist */
+
+.empty-message {
+  text-align: center;
+  color: #555;
+  font-size: 1.1rem;
+  padding: 2rem;
+}
+
+/* BACK BUTTON */
+/* Navigation button to return to main page */
+
+.go-back {
+  display: block;
+  margin: 2rem auto;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #007bff; /* Blue background */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-back:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
