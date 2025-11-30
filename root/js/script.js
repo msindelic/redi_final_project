@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = "";
+const API_KEY = "9a97d6c4";
 
 // DOM ELEMENTS
 const searchBtn = document.getElementById("searchBtn");
@@ -115,7 +115,7 @@ async function fetchMovies() {
         <img src="${
           movie.Poster !== "N/A"
             ? movie.Poster
-            : "https://via.placeholder.com/220x330" // Fallback image if no poster
+            : "https://via.placeholder.com/250x350" // Fallback image if no poster
         }" alt="${movie.Title}">
         <h2>${movie.Title}</h2>
         <p>${movie.Year}</p>
@@ -147,7 +147,7 @@ async function showDetails(id) {
     modalPoster.src =
       movie.Poster !== "N/A"
         ? movie.Poster
-        : "https://via.placeholder.com/220x320";
+        : "https://via.placeholder.com/250x350";
     // Populate modal with movie details
     modalDetails.innerHTML = `
       <h2>${movie.Title} (${movie.Year})</h2>
