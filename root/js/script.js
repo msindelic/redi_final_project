@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = "";
+const API_KEY = "9a97d6c4";
 
 // DOM ELEMENTS
 const searchBtn = document.getElementById("searchBtn");
