@@ -3,14 +3,32 @@
 /* Import Google Fonts - Poppins for modern, clean typography */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+/* GLOBAL CSS VARIABLES*/
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #101820, #060b13);
+  --primary-color: #10b981; 
+  --primary-color-hover: #059669;
+  --header-bg: rgba(8, 0, 0, 0.05);
+  --search-box-button-color:#fff;
+  --moviecard-bg: rgba(255, 255, 255, 0.1);
+  --box-shadow: rgba(0, 0, 0, 0.3) ;
+  --modal-bg: rgba(0, 0, 0, 0.8);
+  --modal-content-bg: #181c27;
+  --modal-right-h2-color: #ffcc00;
+  --scroll-top-button-color: #fff;
+  --scroll-top-button-bg-color: #007bff;
+  --scroll-top-button-hover: #0056b3;  
+}
+
 /* GLOBAL STYLES */
 
 body {
   margin: 0;
   padding: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #101820, #060b13);
-  color: #10b981;
+  background: var(--primary-gradient);
+  color: var(--primary-color);
   min-height: 100vh;
   text-align: center;
 }
@@ -18,7 +36,7 @@ body {
 /* HEADER SECTION */
 
 header {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--header-bg);
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -26,7 +44,7 @@ header {
 }
 
 header nav a {
-  color: #10b981;
+  color: var(--primary-color);
   margin-left: 1rem;
   text-decoration: none;
   font-weight: bold;
@@ -55,7 +73,7 @@ input {
 
 button {
   padding: 10px 15px;
-  background: #10b981; /* Emerald green */
+  background: var(--primary-color); /* Emerald green */
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -65,7 +83,7 @@ button {
 }
 
 button:hover {
-  background: #059669; /* Darker green on hover */
+  background: var(--primary-color-hover); /* Darker green on hover */
 }
 /* MOVIE GRID LAYOUT */
 
@@ -81,7 +99,7 @@ button:hover {
 
 /* Individual movie cards with hover effects */
 .movie-card {
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  background: var(--moviecard-bg); /* Semi-transparent background */
   border-radius: 10px;
   padding: 1rem;
   transition: transform 0.3s;
@@ -114,20 +132,20 @@ button:hover {
   position: fixed;
   bottom: 25px;
   right: 25px;
-  background: #007bff; /* Blue background */
-  color: #fff;
+  background: var(--scroll-top-button-bg-color); /* Blue background */
+  color: var(--scroll-top-button-color);
   border: none;
   padding: 0.8rem 1rem;
   border-radius: 50%; /* Circular button */
   font-size: 1.2rem;
   cursor: pointer;
   display: none; /* Hidden by default, shown via JavaScript */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px var(--box-shadow);
   transition: background 0.3s ease;
 }
 
 #scrollTopBtn:hover {
-  background: #0056b3; /* Darker blue on hover */
+  background: var(--scroll-top-button-hover); /* Darker blue on hover */
 }
 
 /* MODAL OVERLAY */
@@ -141,7 +159,7 @@ button:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8); /* Dark semi-transparent overlay */
+  background: var(--modal-bg); /* Dark semi-transparent overlay */
   justify-content: center;
   align-items: center;
 }
@@ -149,7 +167,7 @@ button:hover {
 /* MODAL CONTENT BOX */
 
 .modal-content {
-  background: #181c27; /* Dark background */
+  background: var(--modal-content-bg); /* Dark background */
   padding: 1.5rem;
   border-radius: 12px;
   width: 90%;
@@ -200,14 +218,14 @@ button:hover {
   right: 20px;
   font-size: 24px;
   cursor: pointer;
-  color: #10b981;
+  color: var(--primary-color);
 }
 
 /* MODAL TEXT STYLES */
 
 .modal-right h2 {
   margin-top: 0;
-  color: #ffcc00; /* Yellow title */
+  color: var(--modal-right-h2-color); /* Yellow title */
 }
 
 .modal-right p {
@@ -218,7 +236,7 @@ button:hover {
 /* Add to Favorites button inside modal */
 
 .modal-right button {
-  background: #10b981;
+  background: var(--primary-color);
   border: none;
   padding: 8px 15px;
   border-radius: 8px;
@@ -227,5 +245,85 @@ button:hover {
 }
 
 .modal-right button:hover {
-  background: #059669; /* Darker green on hover */
+  background: var(--primary-color-hover); /* Darker green on hover */
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .modal-inner {
+    flex-direction: column;
+  }
+
+  .modal-left {
+    flex: 1;
+    width: 100%;
+  }
+
+  .modal-left img {
+    max-width: 300px;
+    margin: 0 auto;
+    display: block;
+  }
+
+  input {
+    max-width: 200px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  .movie-container {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .movie-card img {
+    height: 200px;
+  }
+
+  .search-box {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    max-width: 90%;
+  }
+
+  button {
+    width: 90%;
+  }
+
+  .pagination {
+    padding: 0 0.5rem;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  .modal-right h2 {
+    font-size: 1.2rem;
+  }
 }

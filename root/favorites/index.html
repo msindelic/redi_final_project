@@ -4,30 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorites - Movie Search App</title>
-    <!-- Styles specific to favorites page -->
     <link rel="stylesheet" href="favorites.css" />
   </head>
 
   <body>
-    <!-- HEADER SECTION -->
+    <!-- Updated header to match home page structure with navigation -->
     <header>
       <h1>❤️ My Favorite Movies</h1>
+      <nav>
+        <a href="/index.html">Back to Search</a>
+      </nav>
     </header>
 
     <!-- FAVORITES GRID CONTAINER -->
-    <!-- Populated dynamically with JavaScript -->
-    <!-- Shows favorite movies or empty state message -->
-
     <main id="favoritesContainer" class="favoritesContainer"></main>
 
-    <!-- NAVIGATION BUTTON -->
-    <!-- Returns user to main search page -->
+    <!-- Removed go-back button since we added navigation to header -->
 
-    <button class="go-back" onclick="window.location.href='../index.html'">
-      Back to Search
-    </button>
-
-    <!-- JavaScript for favorites functionality -->
     <script src="favorites.js"></script>
   </body>
 </html>

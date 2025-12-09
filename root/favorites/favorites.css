@@ -3,143 +3,192 @@
 /* Import Google Fonts - Poppins for consistency with main page */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
+/* GLOBAL CSS VARIABLES */
+:root {
+  --primary-bg-gradient: linear-gradient(135deg, #101820, #060b13);
+  --primary-color: #10b981;
+  --primary-color-hover: #059669;
+  --header-bg: rgba(8, 0, 0, 0.05);
+  --header-box-shadow: rgba(0, 0, 0, 0.15);
+  --moviecard-bg: rgba(255, 255, 255, 0.1);
+  --moviecard-box-shadow: rgba(0, 0, 0, 0.1);
+  --moviecard-hover: rgba(0, 0, 0, 0.15);
+  --movircard-h3-color: #10b981;
+  --movie-card-p-color:#10b981;
+  --remove-btn-color: #fff;
+  --remove-btn-bg-color: #ff3b3b;
+  --remove-btn-hover: #cc0000;
+  --empty-message-color: #999;
+  --go-back-color: #fff;
+  --go-back-bg-color: #007bff;
+  --go-back-hover: #0056b3;
+}
+
 /* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
 
 body {
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(
-    135deg,
-    #101820,
-    #060b13
-  ); /* Matching dark gradient */
+  background: var(--primary-bg-gradient);
   margin: 0;
   padding: 0;
+  min-height: 100vh;
 }
 
-/* HEADER SECTION */
-
+/* Updated header to match home page layout with flexbox and navigation */
 header {
-  text-align: center;
-  background-color: #222; /* Dark background */
-  color: #10b981; /* Emerald green text */
-  padding: 1rem 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Subtle shadow */
+  background: var(--header-bg);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 header h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
 }
 
-header a {
-  color: #10b981;
+header nav {
+  display: flex;
+  gap: 1rem;
+}
+
+header nav a {
+  color: var(--primary-color);
   text-decoration: none;
-  font-weight: 500;
-  margin-left: 10px;
+  font-weight: bold;
   transition: color 0.3s;
 }
 
-header a:hover {
-  color: #66aaff; /* Blue on hover */
+header nav a:hover {
+  color: var(--primary-color-hover);
 }
 
 /* FAVORITES GRID LAYOUT */
-/* Responsive grid for favorite movie cards */
-
 .favoritesContainer {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(220px, 1fr)
-  ); /* Auto-fill columns */
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
   padding: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
-/* MOVIE CARD STYLES */
-/* Cards with emerald green background */
-
+/* Updated movie card styles to match home page */
 .movie-card {
-  background: #10b981; /* Emerald green background */
+  background: var(--moviecard-bg);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  padding: 1rem;
+  transition: transform 0.3s;
   cursor: pointer;
   position: relative;
 }
 
 .movie-card:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transform: scale(1.05);
 }
 
+/* Updated image height to match home page (300px) */
 .movie-card img {
   width: 100%;
-  height: 320px;
+  height: 300px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-radius: 10px;
 }
 
-.movie-card h2 {
+.movie-card h3 {
+  margin: 0.5rem 0;
   font-size: 1rem;
-  margin: 0.5rem;
-  color: #333; /* Dark text on green background */
+  color: var(--movircard-h3-color);
 }
 
 .movie-card p {
-  color: #666; /* Gray year text */
-  margin: 0 0.5rem 1rem;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--movie-card-p-color);
 }
 
 /* REMOVE BUTTON */
-/* Red circular button in top-right corner */
-
 .remove-btn {
   position: absolute;
-  top: 8px;
-  right: 8px;
-  background: #ff3b3b; /* Red background */
-  color: #fff;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: var(--remove-btn-bg-color);
+  color: var(--remove-btn-color);
   border: none;
-  border-radius: 50%; /* Circular button */
-  width: 28px;
-  height: 28px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   font-weight: bold;
-  transition: background 0.3s;
+  font-size: 1.2rem;
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .remove-btn:hover {
-  background: #cc0000; /* Darker red on hover */
+  background: var(--remove-btn-hover);
+  transform: scale(1.1);
 }
 
 /* EMPTY STATE MESSAGE */
-/* Shown when no favorites exist */
-
 .empty-message {
   text-align: center;
-  color: #555;
-  font-size: 1.1rem;
-  padding: 2rem;
+  color: var(--empty-message-color);
+  font-size: 1.2rem;
+  padding: 3rem 1rem;
+  grid-column: 1 / -1;
 }
 
-/* BACK BUTTON */
-/* Navigation button to return to main page */
+/* Removed go-back button styles since button was removed */
 
-.go-back {
-  display: block;
-  margin: 2rem auto;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  background-color: #007bff; /* Blue background */
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+/* RESPONSIVE DESIGN */
+
+/* Tablets */
+@media (max-width: 768px) {
+  /* Added header responsive styles to match home page */
+  header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  header h1 {
+    font-size: 1.3rem;
+  }
+
+  .favoritesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  /* Removed specific image height to use default 300px from main style */
 }
 
-.go-back:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+/* Mobile */
+@media (max-width: 480px) {
+  header h1 {
+    font-size: 1.1rem;
+  }
+
+  .favoritesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  /* Updated to match home page mobile image height */
+  .movie-card img {
+    height: 200px;
+  }
+
+  .movie-card h3 {
+    font-size: 0.9rem;
+  }
 }

@@ -1,5 +1,5 @@
 // API Configuration
-const API_KEY = "";
+const API_KEY = "9a97d6c4";
 
 // DOM ELEMENTS
 const searchBtn = document.getElementById("searchBtn");
@@ -111,11 +111,11 @@ async function fetchMovies() {
     // Generate movie cards from search results
     movieContainer.innerHTML = data.Search.map(
       (movie) => `
-      <div class="movie-card" onclick="showDetails('${movie.imdbID}')">
+      <div class="movie-card" onclick="showMovieDetails('${movie.imdbID}')">
         <img src="${
           movie.Poster !== "N/A"
             ? movie.Poster
-            : "https://via.placeholder.com/250x350" // Fallback image if no poster
+            : "https://via.placeholder.com/220x330" // Fallback image if no poster
         }" alt="${movie.Title}">
         <h2>${movie.Title}</h2>
         <p>${movie.Year}</p>
@@ -136,7 +136,7 @@ async function fetchMovies() {
   }
 }
 // Fetches detailed information for a specific movie and displays in modal
-async function showDetails(id) {
+async function showMovieDetails(id) {
   try {
     // Fetch full movie details by IMDB ID
     const res = await fetch(

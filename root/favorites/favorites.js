@@ -1,62 +1,64 @@
-// FAVORITES PAGE - SCRIPT
+// DOM Elements
+const favoritesContainer = document.getElementById("favoritesContainer")
 
-// This file handles displaying and managing favorite movies
-// Data is stored in browser's localStorage
+// Load favorites from localStorage
+function getFavorites() {
+  return JSON.parse(localStorage.getItem("favorites")) || []
+}
 
-// DOM ELEMENTS
-const favoritesContainer = document.getElementById("favoritesContainer");
+// Save favorites to localStorage
+function saveFavorites(favorites) {
+  localStorage.setItem("favorites", JSON.stringify(favorites))
+}
 
-// CORE FUNCTIONS
-/* Loads and displays all favorite movies from localStorage */
-/* Creates movie cards for each favorite or shows empty state */
+// Remove from favorites
+function removeFromFavorites(imdbID) {
+  let favorites = getFavorites()
+  favorites = favorites.filter((fav) => fav.imdbID !== imdbID)
+  saveFavorites(favorites)
+  displayFavorites()
+}
 
-function loadFavorites() {
-  // Retrieve favorites from localStorage (or empty array if none exist)
-  const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+// Display favorites
+function displayFavorites() {
+  const favorites = getFavorites()
 
-  // Clear existing content
-  favoritesContainer.innerHTML = "";
-  // Handle empty favorites state
   if (favorites.length === 0) {
-    favoritesContainer.classList.remove("favoritesContainer");
-    favoritesContainer.classList.add("empty-message");
-    favoritesContainer.innerHTML = `<p>You haven't added any favorites yet 🎥</p>`;
-    return;
+    favoritesContainer.innerHTML = `
+      <div class="empty-message">
+        <p>No favorite movies yet. Start adding some from the search page!</p>
+      </div>
+    `
+    return
   }
-  // Generate movie cards for each favorite
+
+  favoritesContainer.innerHTML = ""
+
   favorites.forEach((movie) => {
-    const card = document.createElement("div");
-    card.classList.add("movie-card");
-    // Build card HTML with remove button and movie info
-    card.innerHTML = `
-      <button class="remove-btn" onclick="removeFavorite('${
-        movie.imdbID
-      }')">×</button>
-      <img src="${
-        movie.Poster !== "N/A"
-          ? movie.Poster
-          : "https://via.placeholder.com/220x320" // Fallback image if no poster
-      }" alt="${movie.Title}">
-      <h2>${movie.Title}</h2>
+    const movieCard = document.createElement("div")
+    movieCard.className = "movie-card"
+
+    const poster = movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450?text=No+Poster"
+
+    movieCard.innerHTML = `
+      <button class="remove-btn" data-id="${movie.imdbID}" title="Remove from favorites">
+        ×
+      </button>
+      <img src="${poster}" alt="${movie.Title}" />
+      <h3>${movie.Title}</h3>
       <p>${movie.Year}</p>
-    `;
-    // Add card to container
-    favoritesContainer.appendChild(card);
-  });
-}
-// Removes a movie from favorites list
-function removeFavorite(id) {
-  // Get current favorites from localStorage
-  let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
-  // Filter out the movie with matching ID
-  favorites = favorites.filter((movie) => movie.imdbID !== id);
-  // Save updated favorites back to localStorage
-  localStorage.setItem("favorites", JSON.stringify(favorites));
-  // Reload the favorites display
-  loadFavorites();
+    `
+
+    // Remove button event
+    const removeBtn = movieCard.querySelector(".remove-btn")
+    removeBtn.addEventListener("click", (e) => {
+      e.stopPropagation()
+      removeFromFavorites(movie.imdbID)
+    })
+
+    favoritesContainer.appendChild(movieCard)
+  })
 }
 
-// INITIALIZATION
-// Load favorites when page loads
-
-loadFavorites();
+// Initialize
+displayFavorites()
