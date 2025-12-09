@@ -147,7 +147,7 @@ async function showMovieDetails(id) {
     modalPoster.src =
       movie.Poster !== "N/A"
         ? movie.Poster
-        : "https://via.placeholder.com/250x350";
+        : "https://via.placeholder.com/220x330";
     // Populate modal with movie details
     modalDetails.innerHTML = `
       <h2>${movie.Title} (${movie.Year})</h2>
